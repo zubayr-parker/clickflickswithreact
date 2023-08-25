@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import SearchBar from '../components/ui/SearchBar'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function MoviesInfo() {
+  const navigate = useNavigate()
   const { imdbID } = useParams();
   const [movieInfo, setMovieInfo] = useState([]);
 
@@ -23,6 +24,10 @@ function MoviesInfo() {
     <div className="container">
       <div className="row">
     
+    <button className="back-btn" onClick={()=> navigate(-1)}>
+    ← Back
+
+    </button>
     <div className="movie--row">
 
     <figure className="movie-img__wrapper--selected no-cursor">

@@ -28,14 +28,13 @@ function Movies() {
         {movie
         .filter((movie) => movie.Poster != "N/A")
         .map((movie) => (
-          <Link to={`${movie.imdbID}`}>
-          <div className="movie">
-          <figure className="movie-img__wrapper no-cursor">
+          
+          <div className="movie" onClick={()=> navigate(`${movie.imdbID}`)} >
+          <figure className="movie-img__wrapper">
             <img src={`${movie.Poster}`} alt="" class="movie-img" />
           </figure>
           <div className="movie__title">{`${movie.Title}`}</div>
         </div>
-      </Link>
         ))}
         </>
     );

@@ -20,14 +20,7 @@ function Nav() {
                 Home
               </Link>
             </li>
-            <li class="nav__link">
-              <Link
-                class="nav__link--anchor link__hover-effect"
-                to="search"
-              >
-                Search Movies
-              </Link>
-            </li>
+            
             <li class="nav__link">
               <Link
                 class="nav__link--anchor nav__link--anchor-primary"
@@ -54,11 +47,7 @@ function Nav() {
                   Home
                 </Link>
               </li>
-              <li class="menu__list">
-                <Link to="movies.html" class="menu__link" onclick="closeMenu()">
-                  Search Movies
-                </Link>
-              </li>
+              
               <li class="menu__list">
                 <Link
                   class="menu__link"

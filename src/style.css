@@ -314,6 +314,7 @@ MOVIE
   border: 2px solid #f47521;
   transition: 300ms all ease;
   margin-right: 24px;
+  max-width: 350px;
 }
 
 .movie-img__wrapper:hover {
