@@ -13,6 +13,7 @@ html {
   overflow-x: hidden;
 }
 
+
 a {
   text-decoration: none;
   color: #fff;
@@ -283,6 +284,13 @@ MOVIE
   justify-content: flex-start;
 }
 
+.movie--row {
+  display: flex;
+  width: 100%;
+  padding: 24px;
+  align-items: center;
+}
+
 .movie__title {
   text-align: center;
   color: #fff;
@@ -297,6 +305,16 @@ MOVIE
   border: 2px solid #f47521;
   transition: 300ms all ease;
 }
+.movie-img__wrapper--selected {
+  width: 70%;
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 2px solid #f47521;
+  transition: 300ms all ease;
+  margin-right: 24px;
+}
 
 .movie-img__wrapper:hover {
   filter: brightness(0.5);
@@ -304,6 +322,11 @@ MOVIE
 
 .movie-img {
   max-height: 380px;
+  width: 100%;
+}
+
+.movie-img__selected {
+  max-height: 500px;
   width: 100%;
 }
 
@@ -358,6 +381,15 @@ select {
     .btn__menu {
         display: block;
     }
+
+    .movie--row {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 24px;
+      align-items: center;
+      justify-content: flex-start;
+    }
 }
 
 @media (max-width:768px) {
@@ -385,6 +417,7 @@ select {
   .search-bar {
     margin-bottom: 8px;
   }
+
 
   
 }

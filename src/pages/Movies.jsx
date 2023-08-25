@@ -1,43 +1,70 @@
-import React, { useState } from 'react'
-import SearchBar from '../components/ui/SearchBar'
-import Movie from '../components/ui/Movie'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import SearchBar from "../components/ui/SearchBar";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 function Movies() {
-  const {search} = useParams()
-    console.log(search)
+  const { search } = useParams();
+  const [movie, setMovies] = useState([]);
+  const navigate = useNavigate()
+
+  async function fetchMovies() {
+    const { data } = await axios.get(
+      `https://www.omdbapi.com/?apikey=2b2c579c&s=${search}`
+    );
+    setMovies(data.Search);
+    //there is a Search object inside data from the omdb api
+  }
+
+  useEffect(() => {
+    fetchMovies();
+  }, [search]);
+
+  console.log(movie);
+
+  function renderMovies() {
+    return (
+      <>
+        {movie
+        .filter((movie) => movie.Poster != "N/A")
+        .map((movie) => (
+          <Link to={`${movie.imdbID}`}>
+          <div className="movie">
+          <figure className="movie-img__wrapper no-cursor">
+            <img src={`${movie.Poster}`} alt="" class="movie-img" />
+          </figure>
+          <div className="movie__title">{`${movie.Title}`}</div>
+        </div>
+      </Link>
+        ))}
+        </>
+    );
+  }
 
   return (
     <section id="movies">
-    <div class="container">
-      <div class="row">
-        <div class="movies__header">
-          <SearchBar/>
-          <select
-            name=""
-            id="filter"
-            class="click"
-            onchange="filterMovies(event)"
-          >
-            <option value="" disabled selected>Sort</option>
-            <option value="NEW_TO_OLD">Newest</option>
-            <option value="OLD_TO_NEW">Oldest</option>
-          </select>
+      <div class="container">
+        <div class="row">
+          <div class="movies__header">
+            <SearchBar />
+            <select
+              name=""
+              id="filter"
+              class="click"
+              onchange="filterMovies(event)"
+            >
+              <option value="" disabled selected>
+                Sort
+              </option>
+              <option value="NEW_TO_OLD">Newest</option>
+              <option value="OLD_TO_NEW">Oldest</option>
+            </select>
+          </div>
+          <div className="movies">{renderMovies()}</div>
         </div>
-        <div class="movies movies__loading">
-          <i class="fas fa-spinner"></i>
-        </div>
-
-        <div>
-
-        {search} has been searched
-        </div>
-        
-        there should be a map here where i map over a usestate varibale called movies and then it maps to a movie.jsx component
       </div>
-    </div>
-  </section>
-  )
+    </section>
+  );
 }
 
-export default Movies
+export default Movies;

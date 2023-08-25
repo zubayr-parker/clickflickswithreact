@@ -1,9 +1,9 @@
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
+import MoviesInfo from "./pages/MoviesInfo";
 import "./style.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {movie} from "./components/ui/Movie";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/:search" element={<Movies/>}/>
+      <Route path="/:search/:imdbID" element={<MoviesInfo/>}/>
 
       </Routes>
     </Router>
