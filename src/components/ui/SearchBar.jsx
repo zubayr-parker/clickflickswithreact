@@ -6,12 +6,11 @@ function SearchBar() {
   const [search,setSearch] = useState("")
   const navigate = useNavigate()
 
-  useEffect(()=>{console.log(search)},[search])
   return (
-    <div class="input__wrapper">
-      <div class="search-bar__wrapper">
+    <div className="input__wrapper">
+      <div className="search-bar__wrapper">
         <input
-          class="search-bar"
+          className="search-bar"
           type="text"
           placeholder="Search!"
           onChange={(event)=>{setSearch(event.target.value)}}

@@ -5,21 +5,21 @@ import streamingServiceLogos from "../assets/streaming-service-logos.png"
 function Header() {
   return (
     <header>
-      <div class="container">
-        <div class="row">
-          <div class="header__wrapper">
-            <h1 class="section__title">
-              Australia's <span class="orange">#1 most awarded</span> movie
+      <div className="container">
+        <div className="row">
+          <div className="header__wrapper">
+            <h1 className="section__title">
+              Australia's <span className="orange">#1 most awarded</span> movie
               streaming site
             </h1>
             <SearchBar/>
-            <h2 class="section__subtitle">
+            <h2 className="section__subtitle">
               View your favourite movies 
-              <span class="orange"> on demand</span> from
+              <span className="orange"> on demand</span> from
             </h2>
-            <figure class="header-img__wrapper">
+            <figure className="header-img__wrapper">
               <img
-                class="header-img"
+                className="header-img"
                 src={streamingServiceLogos}
                 alt=""
               />
